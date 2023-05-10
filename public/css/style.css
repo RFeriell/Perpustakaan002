@@ -1,0 +1,17 @@
+.card-buku {
+    width: 100%;
+}
+
+.justify {
+    text-align: justify;
+}
+
+.nav-item a:hover,
+a:active {
+    color: skyblue;
+    transition: .3s;
+}
+
+.radius {
+    border-radius: 20px !important;
+}
