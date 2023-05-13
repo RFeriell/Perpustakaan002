@@ -4,14 +4,25 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
-    //controller home
     public function index()
     {
-        return view('welcome_message');
+
+        if (session('id')) {
+            return redirect()->to(base_url('home'));
+        }
+
+        $data = [
+            'title' => 'Login Sekarang',
+        ];
+
+        return view('login/form_login.php', $data);
     }
 
     public function Home()
     {
+        if (!session('id')) {
+            return redirect()->to(base_url())->with('error', 'Anda harus login');
+        }
         $data = [
             'title' => 'Halaman | Home',
         ];
@@ -21,12 +32,4 @@ class Home extends BaseController
 
 
     //LOGIN
-    public function login()
-    {
-        $data = [
-            'title' => 'Login Sekarang',
-        ];
-
-        return view('login/form_login.php', $data);
-    }
 }

@@ -9,9 +9,16 @@
         <title><?= $title; ?></title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
-        <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/all.css">
+        <!-- CSS ICON -->
+        <link rel="stylesheet" href="<?= base_url('public'); ?>/css/all.css">
+        <link rel="stylesheet" href="<?= base_url('public'); ?>/css/brands.css">
+        <link rel="stylesheet" href="<?= base_url('public'); ?>/css/fontawesome.css">
+        <link rel="stylesheet" href="<?= base_url('public'); ?>/css/regular.css">
+        <link rel="stylesheet" href="<?= base_url('public'); ?>/css/solid.css">
         <style>
+            /* google fonts link  */
+            @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Leckerli+One&family=Sriracha&display=swap');
+
             .sidebar {
                 top: 0;
                 bottom: 0;
@@ -50,9 +57,28 @@
                 color: #0d6efd;
             }
 
-            .droplisht {
-                background-color: #0d6efd;
-                outline: none;
+            .nav-item:hover {
+                background-color: #f0f0f0;
+            }
+
+            .nav-item details ul li a {
+                display: inline-block;
+                color: black;
+                text-decoration: none;
+            }
+
+            .nav-item details ul li a span {
+                padding: 0 5px;
+            }
+
+            .judul-web {
+                font-family: 'Sriracha', cursive;
+            }
+
+            .judul-web span {
+                font-family: 'Leckerli One', cursive;
+                color: purple;
+                font-weight: 700;
             }
         </style>
     </head>
@@ -60,8 +86,8 @@
     <body>
         <nav class="navbar navbar-dark bg-primary p-3">
             <div class="d-flex col-12 col-md-3 col-lg-2 mb-2 mb-lg-0 flex-wrap flex-md-nowrap justify-content-between">
-                <a class="navbar-brand" href="/">
-                    Pepustakaan
+                <a class="navbar-brand" href="<?= base_url('/'); ?>">
+                    <h3 class="judul-web">Perpustaka<span>.an</span></h3>
                 </a>
                 <button class="navbar-toggler d-md-none collapsed mb-3" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -73,13 +99,10 @@
             <div class="col-12 col-md-5 col-lg-8 d-flex align-items-center justify-content-md-end mt-3 mt-md-0">
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-                        Hai User
+                        <?= session('email'); ?>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li><a class="dropdown-item" href="#">Messages</a></li>
-                        <li><a class="dropdown-item" href="/logout">Logout</a></li>
-                        <li><a class="dropdown-item" href="/login">Login</a></li>
+                        <li><a class="dropdown-item" href="<?= base_url('logout'); ?>">Logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -90,30 +113,29 @@
                     <div class="position-sticky">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="/">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
-                                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                                    </svg>
+                                <a class="nav-link" aria-current="page" href="<?= base_url('/home'); ?>">
+                                    <i class="fa fa-home"></i>
                                     <span class="ml-2">Home</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="/">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
-                                    </svg>
+                                <a class="nav-link" aria-current="page" href="<?= base_url('/staff'); ?>">
+                                    <i class="fa fa-user"></i>
                                     <span class="ml-2">Staf</span>
                                 </a>
                             </li>
-                            </li>
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="/">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
-                                        <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
-                                    </svg>
-                                    <span class="ml-2">Books</span>
-                                </a>
+                                <details class="nav-link">
+                                    <summary type="none" style="cursor: pionter;" class="d-block">
+                                        <i class="fa fa-book"></i>
+                                        <span>Books</span>
+                                    </summary>
+                                    <ul type="none">
+                                        <li><a href="#"><i class="fa fa-book"></i></i></i><span>Book</span></a></li>
+                                        <li><a href="#"><i class="fa fa-book"></i></i><span>Category</span></a></li>
+                                        <li><a href="#"><i class="fa fa-book"></i></i><span>Publisher</span></a></li>
+                                    </ul>
+                                </details>
                             </li>
                         </ul>
                     </div>
@@ -123,6 +145,12 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+        <!-- JAVASCRIPT ICONS -->
+        <script src="<?= base_url('public'); ?>/js/all.js"></script>
+        <script src="<?= base_url('public'); ?>/js/brands.js"></script>
+        <script src="<?= base_url('public'); ?>/js/fontawesome.js"></script>
+        <script src="<?= base_url('public'); ?>/js/regular.js"></script>
+        <script src="<?= base_url('public'); ?>/js/solid.js"></script>
         <!-- Github buttons -->
         <script async defer src="https://buttons.github.io/buttons.js"></script>
         <script>
@@ -146,6 +174,10 @@
 
     <!-- multiple view -->
     <?= $this->renderSection('konten'); ?>
+
+    <!-- awal footer -->
+
+    <!-- akhir footer -->
 
 
     <!-- script -->
