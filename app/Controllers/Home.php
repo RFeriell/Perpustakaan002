@@ -29,7 +29,4 @@ class Home extends BaseController
 
         return view('index', $data);
     }
-
-
-    //LOGIN
 }

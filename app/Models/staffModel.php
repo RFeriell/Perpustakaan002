@@ -8,12 +8,9 @@ class StaffModel extends Model
 {
     protected $table      = 'staff';
     protected $primaryKey = 'id';
-
     protected $useAutoIncrement = true;
-
     protected $returnType     = 'array';
     protected $useSoftDeletes = true;
-
     protected $allowedFields = ['name', 'email', 'password'];
 
     // Dates

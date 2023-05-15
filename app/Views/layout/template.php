@@ -7,6 +7,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?= $title; ?></title>
+        <link rel="icon" href="https://cdn.icon-icons.com/icons2/1148/PNG/512/1486503771-book-books-education-library-reading-open-book-study_81275.png">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
         <!-- CSS ICON -->
@@ -18,6 +19,14 @@
         <style>
             /* google fonts link  */
             @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Leckerli+One&family=Sriracha&display=swap');
+
+            body {
+                background-color: #f8f9fa;
+            }
+
+            main {
+                position: relative;
+            }
 
             .sidebar {
                 top: 0;
@@ -80,6 +89,28 @@
                 color: purple;
                 font-weight: 700;
             }
+
+            .radius {
+                border-radius: 5px;
+            }
+
+            .nav-item details ul li:hover a {
+                text-decoration: underline;
+                color: black;
+                background-color: #0D6EFD;
+                color: white;
+            }
+
+            .nav-item details ul li a {
+                margin: 5px 0;
+                display: block;
+                padding: 10px;
+                background-color: #e9e6e6;
+                border-radius: 8px;
+                transition: all .2s;
+                font-weight: 600;
+                /* border: 1px solid black; */
+            }
         </style>
     </head>
 
@@ -115,89 +146,60 @@
                             <li class="nav-item">
                                 <a class="nav-link" aria-current="page" href="<?= base_url('/home'); ?>">
                                     <i class="fa fa-home"></i>
-                                    <span class="ml-2">Home</span>
+                                    <span class="ml-2"><strong>Home</strong></span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" aria-current="page" href="<?= base_url('/staff'); ?>">
-                                    <i class="fa fa-user"></i>
-                                    <span class="ml-2">Staf</span>
+                                    <i class="fa-solid fa-user"></i>
+                                    <span class="ml-2"><b>Staf</b></span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <details class="nav-link">
                                     <summary type="none" style="cursor: pionter;" class="d-block">
                                         <i class="fa fa-book"></i>
-                                        <span>Books</span>
+                                        <span class="ml-2"><b>Books</b></span>
                                     </summary>
                                     <ul type="none">
-                                        <li><a href="#"><i class="fa fa-book"></i></i></i><span>Book</span></a></li>
-                                        <li><a href="#"><i class="fa fa-book"></i></i><span>Category</span></a></li>
-                                        <li><a href="#"><i class="fa fa-book"></i></i><span>Publisher</span></a></li>
+                                        <li><a href="<?= base_url('/book'); ?>"><i class="fa fa-book"></i></i></i><span class="ml-2">Book</span></a></li>
+                                        <li><a href="<?= base_url('category'); ?>"><i class="fa fa-book"></i></i><span class="ml-2">Category</span></a></li>
+                                        <li><a href="<?= base_url('publisher'); ?>"><i class="fa fa-book"></i></i><span class="ml-2">Publisher</span></a></li>
                                     </ul>
                                 </details>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="<?= base_url('/borrower'); ?>">
+                                    <i class="fa-solid fa-bookmark"></i>
+                                    <span class="ml-2"><b>Borrower</b></span>
+                                </a>
                             </li>
                         </ul>
                     </div>
                 </nav>
             </div>
         </div>
+        <!-- akhir navbar -->
+
+        <!-- Page Contens -->
+        <?= $this->renderSection('konten'); ?>
+        <!-- Page contens  -->
+
+        <!-- awal footer -->
+
+        <!-- akhir footer -->
+
+
+        <!--------------------------------------------------------- script---------------------------------------------------->
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
-        <!-- JAVASCRIPT ICONS -->
+        <!-- javascript ICONS -->
         <script src="<?= base_url('public'); ?>/js/all.js"></script>
         <script src="<?= base_url('public'); ?>/js/brands.js"></script>
         <script src="<?= base_url('public'); ?>/js/fontawesome.js"></script>
         <script src="<?= base_url('public'); ?>/js/regular.js"></script>
         <script src="<?= base_url('public'); ?>/js/solid.js"></script>
-        <!-- Github buttons -->
-        <script async defer src="https://buttons.github.io/buttons.js"></script>
-        <script>
-            new Chartist.Line('#traffic-chart', {
-                labels: ['January', 'Februrary', 'March', 'April', 'May', 'June'],
-                series: [
-                    [23000, 25000, 19000, 34000, 56000, 64000]
-                ]
-            }, {
-                low: 0,
-                showArea: true
-            });
-        </script>
-    </body>
-
-    </html>
-
-
-    <!-- akhir navbar -->
-
-
-    <!-- multiple view -->
-    <?= $this->renderSection('konten'); ?>
-
-    <!-- awal footer -->
-
-    <!-- akhir footer -->
-
-
-    <!-- script -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
-    <script src="/js/all.js"></script>
-    <script>
-        var menuHolder = document.getElementById('menuHolder')
-        var siteBrand = document.getElementById('siteBrand')
-
-        function menuToggle() {
-            if (menuHolder.className === "drawMenu") menuHolder.className = ""
-            else menuHolder.className = "drawMenu"
-        }
-        if (window.innerWidth < 426) siteBrand.innerHTML = "MAS"
-        window.onresize = function() {
-            if (window.innerWidth < 420) siteBrand.innerHTML = "MAS"
-            else siteBrand.innerHTML = "MY AWESOME WEBSITE"
-        }
-    </script>
     </body>
 
     </html>

@@ -29,17 +29,42 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+
+// Routes Untuk Login 
 $routes->get('/', 'Home::index');
 $routes->get('/home', 'Home::Home');
 $routes->post('/auth', 'Auth::login');
 $routes->get('/logout', 'Auth::logout');
-
+//Routes MVC table Staff
 $routes->get('/staff', 'staff::index');
 $routes->get('/staff-add', 'staff::add');
 $routes->post('/staff-addpro', 'staff::addpro');
-$routes->get('/staff-edit', 'staff::edit');
-$routes->get('/staff-editpro', 'staff::editpro');
-$routes->get('/delete-staff', 'staff::delete');
+$routes->get('/staff-edit/(:num)', 'staff::edit/$1');
+$routes->post('/staff-editpro', 'staff::editpro');
+$routes->get('/staff-delete/(:num)', 'staff::delete/$1');
+//Routes MVC table Category
+$routes->get('/category', 'category::index');
+$routes->get('/category-add', 'category::add');
+$routes->post('/category-addpro', 'category::addpro');
+$routes->get('/category-edit/(:num)', 'category::edit/$1');
+$routes->post('/category-editpro', 'category::editpro');
+$routes->get('/category-delete/(:num)', 'category::delete/$1');
+//Routes MVC table Publisher
+$routes->get('/publisher', 'publisher::index');
+$routes->get('/publisher-add', 'publisher::add');
+$routes->post('/publisher-addpro', 'publisher::addpro');
+$routes->get('/publisher-edit/(:num)', 'publisher::edit/$1');
+$routes->post('/publisher-editpro', 'publisher::editpro');
+$routes->get('/publisher-delete/(:num)', 'publisher::delete/$1');
+// Routes MVC table Borrower 
+$routes->get('/borrower', 'borrower::index');
+$routes->get('/borrower-add', 'borrower::add');
+$routes->post('/borrower-addpro', 'borrower::addpro');
+$routes->get('/borrower-edit/(:num)', 'borrower::edit/$1');
+$routes->post('/borrower-editpro', 'borrower::editpro');
+$routes->get('/borrower-delete/(:num)', 'borrower::delete/$1');
+//Routes MVC table Book
+$routes->get('/book', 'Book::index');
 
 
 

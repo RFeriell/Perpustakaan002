@@ -23,6 +23,7 @@ class Auth extends BaseController
             if (md5($post['password']) == $datapost['password']) {
                 $key = array(
                     'id'    => $datapost['id'],
+                    'name'    => $datapost['name'],
                     'email' => $datapost['email'],
                 );
                 session()->set($key);
