@@ -5,9 +5,12 @@ $target_url = ($is_edit) ? "/category-editpro" : "/category-addpro"
 
 <?= $this->extend('layout/template'); ?>
 <?= $this->section('konten'); ?>
-<main class="col-md-9 ml-sm-auto col-lg-10 px-md-4 py-4">
-    <div class="container">
-        <h2><?= $judul; ?></h2>
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <a class="btn btn-primary mb-2" href="<?= base_url('category'); ?>"><i class="fa-solid fa-arrow-left mr-2"></i>Back</a>
+            <h2><?= $judul; ?></h2>
+        </div>
         <form action="<?= base_url($target_url); ?>" method="post" enctype="multipart/form-data">
             <?= csrf_field(); ?>
             <div class="card radius">
@@ -30,5 +33,5 @@ $target_url = ($is_edit) ? "/category-editpro" : "/category-addpro"
             </div>
         </form>
     </div>
-</main>
+</div>
 <?= $this->endSection(); ?>

@@ -65,6 +65,18 @@ $routes->post('/borrower-editpro', 'borrower::editpro');
 $routes->get('/borrower-delete/(:num)', 'borrower::delete/$1');
 //Routes MVC table Book
 $routes->get('/book', 'Book::index');
+$routes->get('/book-add', 'book::add');
+$routes->post('/book-addpro', 'book::addpro');
+$routes->get('/book-edit/(:num)', 'book::edit/$1');
+$routes->post('/book-editpro', 'book::editpro');
+$routes->get('/book-delete/(:num)', 'book::delete/$1');
+//Routes MVC table Borrow
+$routes->get('/borrow', 'borrow::index');
+$routes->get('/borrow-add', 'borrow::add');
+$routes->post('/borrow-addpro', 'borrow::addpro');
+$routes->get('/borrow-edit/(:num)', 'borrow::edit/$1');
+$routes->post('/borrow-editpro', 'borrow::editpro');
+$routes->get('/borrow-delete/(:num)', 'borrow::delete/$1');
 
 
 

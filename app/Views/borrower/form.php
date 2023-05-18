@@ -5,9 +5,12 @@ $target_url = ($is_edit) ? "/borrower-editpro" : "/borrower-addpro"
 
 <?= $this->extend('layout/template'); ?>
 <?= $this->section('konten'); ?>
-<main class="col-md-9 ml-sm-auto col-lg-10 px-md-4 py-4">
-    <div class="container">
-        <h2><?= $judul; ?></h2>
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <a class="btn btn-primary mb-2" href="<?= base_url('borrower'); ?>"><i class="fa-solid fa-arrow-left mr-2"></i>Back</a>
+            <h2><?= $judul; ?></h2>
+        </div>
         <form action="<?= base_url($target_url); ?>" method="post" enctype="multipart/form-data">
             <?= csrf_field(); ?>
             <div class="card radius">
@@ -44,17 +47,17 @@ $target_url = ($is_edit) ? "/borrower-editpro" : "/borrower-addpro"
                     <div class="mb-3 row">
                         <label for="gender" class="col-sm-2 col-form-label">Gender</label>
                         <div class="col-sm-10">
-                            <div class="btn btn-danger">
+                            <div style="line-height: 5px;" class="btn btn-danger">
                                 <label for="laki_laki">Laki-laki</label>
-                                <input type="radio" id="laki_laki" name="gender" value="L" value="<?= ($is_edit) ? $item['gender'] : old('gender') ?>" <?= (!empty(session()->getFlashdata('validation')['gender'])) ? 'is-invalid' : '' ?>" />
+                                <input type="radio" id="laki_laki" name="gender" value="L" <?= (!empty(session()->getFlashdata('validation')['gender'])) ? 'is-invalid' : '' ?>" placeholder="gender" value="<?= ($is_edit) ? $item['gender'] : old('gender') ?>" />
                                 <div class="invalid-feedback">
                                     <?= (!empty(session()->getFlashdata('validation')['gender'])) ? session()->getFlashdata('validation')['gender'] : '' ?>
                                 </div>
                             </div>
-                            <div class="btn btn-primary">
+                            <div style="line-height: 5px;" class="btn btn-primary">
                                 <label for="perempuan">Perempuan</label>
-                                <input type="radio" id="perempuan" name="gender" value="P" value="<?= ($is_edit) ? $item['gender'] : old('gender') ?>" <?= (!empty(session()->getFlashdata('validation')['gender'])) ? 'is-invalid' : '' ?>" />
-                                <div class="invalid-feedback">
+                                <input type="radio" id="perempuan" name="gender" value="P" <?= (!empty(session()->getFlashdata('validation')['gender'])) ? 'is-invalid' : '' ?>" placeholder="gender" value="<?= ($is_edit) ? $item['gender'] : old('gender') ?>" />
+                                <div class=" invalid-feedback">
                                     <?= (!empty(session()->getFlashdata('validation')['gender'])) ? session()->getFlashdata('validation')['gender'] : '' ?>
                                 </div>
                             </div>
@@ -85,5 +88,5 @@ $target_url = ($is_edit) ? "/borrower-editpro" : "/borrower-addpro"
             </div>
         </form>
     </div>
-</main>
+</div>
 <?= $this->endSection(); ?>

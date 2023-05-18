@@ -4,16 +4,17 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class BookModel extends Model
+class BorrowModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'book';
+    protected $table            = 'borrow';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
+    protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = true;
     protected $protectFields    = true;
-    protected $allowedFields    = ['title', 'author', 'publication_year', 'id_publisher', 'id_category', 'quantity'];
+    protected $allowedFields    = ['id_borrower', 'id_book', 'id_staff', 'release_date', 'due_date', 'note'];
 
     // Dates
     protected $useTimestamps = true;

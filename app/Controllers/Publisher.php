@@ -138,7 +138,7 @@ class Publisher extends BaseController
                     ],
                 ],
                 'address' => [
-                    'rules' => 'required|is_unique[publisher.address]',
+                    'rules' => 'required',
                     'errors' => ['required' => 'wajib diisi'],
                 ],
                 'contact' => [
@@ -151,7 +151,7 @@ class Publisher extends BaseController
             ])) {
                 $validation = \config\Services::validation();
                 session()->setFlashdata('validation', $validation->getErrors());
-                return redirect()->to('publisher-add')->withInput();
+                return redirect()->to('publisher-edit/' . $post['id'])->withInput();
             }
             $this->publishermodel->save([
                 'id'    => $post['id'],
@@ -160,6 +160,18 @@ class Publisher extends BaseController
                 'contact' => $post['contact'],
             ]);
             return redirect()->to('publisher')->with('info', 'data berhasil ditambah');
+        }
+    }
+
+    public function delete($id)
+    {
+        if (!session('id')) {
+            return redirect()->to(base_url())->with('error', 'Anda Harus Login');
+        }
+
+        $delete = $this->publishermodel->delete($id);
+        if ($delete) {
+            return redirect()->to('publisher');
         }
     }
 }
