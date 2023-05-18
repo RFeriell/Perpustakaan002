@@ -26,10 +26,10 @@
                                 <th scope="row"><?= $no++; ?></th>
                                 <td><?= $c['category']; ?></td>
                                 <td>
-                                    <a href="<?= base_url('category-edit/') . $c['id']; ?>" class="btn btn-warning">
+                                    <a href="<?= base_url('category-edit/') . $c['id']; ?>" class="btn btn-warning mb-1">
                                         <i class="fa-solid fa-pen-to-square" style="color: white;"></i>
                                     </a>
-                                    <a href="<?= base_url('category-delete/') . $c['id']; ?>" class="btn btn-danger">
+                                    <a href="<?= base_url('category-delete/') . $c['id']; ?>" class="btn btn-danger mb-1">
                                         <i class="fa-solid fa-trash"></i>
                                     </a>
                                 </td>

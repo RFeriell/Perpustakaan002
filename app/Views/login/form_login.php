@@ -26,10 +26,13 @@
         body {
             box-sizing: border-box;
             overflow: hidden;
-            background-color: #aea;
             background-repeat: no-repeat;
             background-size: cover;
             color: black;
+        }
+
+        .half {
+            background-color: #4E73DF;
         }
 
         .card-me {
@@ -63,7 +66,7 @@
 <body>
     <div class="half">
         <div class="bg order-1 order-md-2" style="background-image: url('<?= base_url('public/'); ?>image/library2.jpg');"></div>
-        <div class="contents order-2 order-md-1">
+        <div class="contents bg-gradient order-2 order-md-1">
             <div class="container">
                 <div class="row align-items-center justify-content-center">
                     <div class="col-md-6">
@@ -104,8 +107,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
     <!-- Javascript Login Colorlib  -->
     <script src="<?= base_url('public/login/'); ?>js/jquery-3.3.1.min.js"></script>

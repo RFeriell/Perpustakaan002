@@ -27,15 +27,19 @@
     <!-- My style CSS  -->
     <link rel="stylesheet" href="<?= base_url('public'); ?>/css/style.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Leckerli+One&family=Sriracha&display=swap');
+
         .judul-web {
             font-family: 'Sriracha', cursive;
-            font-size: .9em;
+            font-size: 1.2em;
+            text-transform: capitalize;
         }
 
         .judul-web span {
             font-family: 'Leckerli One', cursive;
-            color: purple;
+            color: darkblue;
             font-weight: 700;
+            text-transform: lowercase;
         }
     </style>
 </head>
@@ -50,7 +54,7 @@
                 <div class="sidebar-brand-icon">
                     <img class="my-2" style=" border: 2px solid white; padding: 3px; border-radius: 50%; width: 40px; display: iniline-block; margin: auto;" src="https://cdn.icon-icons.com/icons2/1148/PNG/512/1486503771-book-books-education-library-reading-open-book-study_81275.png" alt="Perpustaka.an">
                 </div>
-                <div class="sidebar-brand-text mx-3 judul-web">perpustaka<span>.an</span></div>
+                <div class="sidebar-brand-text mx-3 judul-web">Perpustaka<span>.an</span></div>
             </a>
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -207,10 +211,15 @@
                 <!-- Custom scripts for all pages-->
                 <script src="<?= base_url('public/sb/'); ?>js/sb-admin-2.min.js"></script>
                 <!-- Page level plugins -->
+                <script src="<?= base_url('public/sb/'); ?>vendor/chart.js/Chart.min.js"></script>
                 <script src="<?= base_url('public/sb/'); ?>vendor/datatables/jquery.dataTables.min.js"></script>
                 <script src="<?= base_url('public/sb/'); ?>vendor/datatables/dataTables.bootstrap4.min.js"></script>
                 <!-- Page level custom scripts -->
                 <script src="<?= base_url('public/sb/'); ?>js/demo/datatables-demo.js"></script>
+                <script src="<?= base_url('public/sb/'); ?>js/demo/chart-area-demo.js"></script>
+                <script src="<?= base_url('public/sb/'); ?>js/demo/chart-pie-demo.js"></script>
+                <script src="<?= base_url('public/sb/'); ?>js/demo/chart-bar-demo.js"></script>
+
 </body>
 
 </html>
