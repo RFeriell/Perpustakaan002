@@ -72,7 +72,7 @@ $target_url = ($is_edit) ? "/borrow-editpro" : "/borrow-addpro"
                     <div class="mb-3 row">
                         <label class="col-sm-2 col-form-label">Note</label>
                         <div class="col-sm-10">
-                            <input class="form-control" name="note" disabled value="Peminjaman Buku">
+                            <input class="form-control" name="note" disabled value="Pinjam">
                         </div>
                     </div>
                     <div class="mb-3">

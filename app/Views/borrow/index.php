@@ -36,11 +36,14 @@
                                 <td><?= $b['due_date']; ?></td>
                                 <td><?= $b['note']; ?></td>
                                 <td>
-                                    <a href="<?= base_url('borrow-edit/') . $b['id']; ?>" class="btn btn-warning mb-1">
+                                    <a href=" <?= base_url('borrow-edit/') . $b['id']; ?>" class="btn btn-warning mb-1">
                                         <i class="fa-solid fa-pen-to-square" style="color: white;"></i>
                                     </a>
-                                    <a href="<?= base_url('borrow-delete/') . $b['id']; ?>" class="btn btn-danger mb-1">
+                                    <a onclick="return confirm('Anda yakin data dihapus?')" href="<?= base_url('borrow-delete/') . $b['id']; ?>" class="btn btn-danger mb-1">
                                         <i class="fa-solid fa-trash"></i>
+                                    </a>
+                                    <a onclick="return confirm('Anda yakin buku di kembalikan?')" href="<?= base_url('borrow-return/') . $b['id']; ?>" class="btn btn-info mb-1">
+                                        <i class="fa-solid fa-reply"></i>
                                     </a>
                                 </td>
                             </tr>

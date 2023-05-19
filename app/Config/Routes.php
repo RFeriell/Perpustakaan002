@@ -77,6 +77,8 @@ $routes->post('/borrow-addpro', 'borrow::addpro');
 $routes->get('/borrow-edit/(:num)', 'borrow::edit/$1');
 $routes->post('/borrow-editpro', 'borrow::editpro');
 $routes->get('/borrow-delete/(:num)', 'borrow::delete/$1');
+// Routes Pengembalian Buku
+$routes->get('/borrow-return/(:num)', 'borrow::returnbook/$1');
 
 
 

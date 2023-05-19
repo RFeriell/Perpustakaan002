@@ -39,7 +39,7 @@
                                     <a href="<?= base_url('book-edit/') . $b['id']; ?>" class="btn btn-warning mb-1">
                                         <i class="fa-solid fa-pen-to-square" style="color: white;"></i>
                                     </a>
-                                    <a href="<?= base_url('book-delete/') . $b['id']; ?>" class="btn btn-danger mb-1">
+                                    <a onclick="return confirm('Anda yakin data dihapus?')" href="<?= base_url('book-delete/') . $b['id']; ?>" class="btn btn-danger mb-1">
                                         <i class="fa-solid fa-trash"></i>
                                     </a>
                                 </td>

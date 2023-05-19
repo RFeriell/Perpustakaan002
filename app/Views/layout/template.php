@@ -41,6 +41,13 @@
             font-weight: 700;
             text-transform: lowercase;
         }
+
+        a.btn.btn-warning,
+        a.btn.btn-danger,
+        a.btn.btn-info {
+            font-size: .8em;
+            padding: 5px 10px;
+        }
     </style>
 </head>
 
@@ -190,12 +197,6 @@
 
 
                 <!--------------------------------------------------------- script---------------------------------------------------->
-                <!-- <script>
-                const del = document.querySelector('a.btn.btn-danger');
-                del.addEventListener('click', function() {
-                    confirm('Anda yakin untuk mengehapus?');
-                });
-                </script> -->
                 <!-- javascript ICONS -->
                 <script src="<?= base_url('public'); ?>/js/all.js"></script>
                 <script src="<?= base_url('public'); ?>/js/brands.js"></script>
